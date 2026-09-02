@@ -31,5 +31,9 @@ class MainActivity : AppCompatActivity() {
             text = "My First Android App!!"
             textAlignment = TextView.TEXT_ALIGNMENT_CENTER
         }
+
+        supportFragmentManager.beginTransaction().add(R.id.flMainContainer,BlankFragment.newInstance(
+            "Hello", "Heloísa!"
+        )).commit()
     }
 }
