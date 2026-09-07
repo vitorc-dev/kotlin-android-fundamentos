@@ -1,5 +1,6 @@
 package com.example.meuprimeiroappandroid
 
+import android.content.Intent
 import android.content.IntentFilter
 import android.os.Bundle
 import android.util.Log
@@ -10,6 +11,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.meuprimeiroappandroid.broadcastreceiver.LowBatteryBroadcastReceiver
 import com.example.meuprimeiroappandroid.databinding.ActivityMainBinding
+import com.example.meuprimeiroappandroid.service.SyncDataService
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -43,6 +45,9 @@ class MainActivity : AppCompatActivity() {
         )).commit()
 
         registerReceiver(lowBatteryBroadcastReceiver, lowBatteryIntentFilter)
+
+        val intent = Intent(this, SyncDataService::class.java)
+        startService(intent)
     }
 
     override fun onDestroy() {

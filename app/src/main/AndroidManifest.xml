@@ -12,6 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MeuPrimeiroAppAndroid">
         
+        <service android:name=".service.SyncDataService" android:foregroundServiceType="dataSync"/>
+        
         <receiver android:name=".broadcastreceiver.LowBatteryBroadcastReceiver" android:exported="false">
             <intent-filter>
                 <action android:name="android.intent.action.BATTERY_LOW"/>
